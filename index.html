@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>html.trs-wait body{opacity:0}body{transition:opacity .25s ease}</style>
+<script>document.documentElement.classList.add("trs-wait");setTimeout(function(){document.documentElement.classList.remove("trs-wait")},4500)</script>
+<!--splash-->
+<script>
+/* Pantalla de carga (carga.html): se muestra solo en la PRIMERA visita directa a la página principal de cada pestaña.
+   No aparece al navegar dentro del sitio, con enlaces con #… (p. ej. #admin), con una sesión de administrador activa ni con ?sin-carga.
+   Para desactivarla por completo, borra este bloque entero (el comentario «splash» de apertura, este script y el comentario de cierre). */
+(function(){try{
+ if(sessionStorage.getItem('splash-v1')||sessionStorage.getItem('admin-session-v1')||location.hash||/(^|[?&])sin-carga/.test(location.search))return;
+ if(document.referrer&&new URL(document.referrer).origin===location.origin)return;
+ location.replace('carga.html');
+}catch(e){}})();
+</script>
+<!--/splash-->
+<title>Inicio – Taller Regalia Setups</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/inicio.css">
+</head>
+<body>
+
+<header class="site-nav">
+ <a class="brand" href="#" aria-label="Taller Regalia Setups">
+  <span class="logo-box"><svg id="logo-def" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#f2c200" stroke-width="3" stroke-dasharray="3 2"/><circle cx="24" cy="24" r="12" fill="#f2c200"/><circle cx="24" cy="24" r="4.5" fill="#141414"/></svg><img id="logo-img" alt="Logo de Taller Regalia &amp; Setups" hidden></span>
+  <span id="brand-name">Taller Regalia &amp; Setups<small>Computación · electrónica · reparación</small></span>
+ </a>
+ <button class="burger" aria-expanded="false" aria-controls="menu">Menú</button>
+ <nav aria-label="Principal">
+  <ul class="menu" id="menu">
+   <li><a href="index.html" aria-current="page">Inicio</a></li>
+   <li><a href="trabajo.html">Nuestro trabajo</a></li>
+   <li><a href="plenario.html">Taller (Plenario)</a></li>
+   <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+ </nav>
+</header>
+
+<div class="hero" id="hero">
+ <h1 data-edit="h-t">Horarios de atención</h1>
+ <p class="hours"><span data-edit="h-1">Lunes a viernes: 16:00 a 20:00</span><span data-edit="h-2">Sábados: 12:00 a 15:00 hrs</span></p>
+ <a class="hero-cta" href="#servicios">Servicios</a>
+</div>
+
+<div class="admin">
+ <button class="btn" id="toggle" aria-pressed="false" type="button" hidden>Modo edición</button>
+ <div class="edtools">
+  <div class="bar"><span>Logo:</span><button class="btn solid" type="button" id="logo-chg">Cambiar logo</button><button class="btn" type="button" id="logo-rst">Restaurar</button>
+   <label><input type="checkbox" id="logo-txt" checked> Mostrar nombre junto al logo</label></div>
+  <div class="bar"><span>Banner:</span><button class="btn solid" type="button" id="hero-chg">Subir imagen o GIF</button><button class="btn" type="button" id="hero-m">Imagen para móvil</button><button class="btn" type="button" id="hero-url">Usar enlace</button><button class="btn" type="button" id="hero-rst">Restaurar</button></div>
+  <div class="bar">
+   <label>Alto <select id="hero-h"><option value="s">Bajo</option><option value="m">Medio</option><option value="l">Alto</option></select></label>
+   <label>Enfoque <select id="hero-pos"><option value="center">Centro</option><option value="top">Arriba</option><option value="bottom">Abajo</option><option value="left">Izquierda</option><option value="right">Derecha</option></select></label>
+   <label>Oscurecer <input type="range" id="hero-dim" min="0" max="80" value="45" aria-label="Oscurecer el banner"></label>
+  </div>
+  <p class="hint" id="hero-msg" role="status">GIF animados y WebP se guardan tal cual (hasta 25 MB). Los más pesados: súbelos a la carpeta img/ del sitio y usa «Usar enlace».</p>
+ </div>
+</div>
+
+<main class="wrap" id="servicios">
+ <h2>Servicios <span class="addwrap"><button class="btn solid" id="add" type="button">+ Agregar servicio</button></span></h2>
+ <p class="svc-intro" data-edit="svc" data-rich="svc">Revisión, mantenimiento y armado de equipos de computación, portátiles y dispositivos móviles, con un servicio técnico preciso.</p>
+ <section class="grid" id="grid" aria-label="Servicios"></section>
+</main>
+
+<input type="file" id="file" accept="image/*">
+<div class="dlg" id="pin" role="dialog" aria-modal="true" aria-labelledby="pin-t">
+ <form class="pinbox" id="pinf" autocomplete="off">
+  <img class="pin-logo" src="img/logo-empresa.png" alt="Taller Regalia &amp; Setups">
+  <h3 id="pin-t">Acceso de administrador</h3>
+  <p class="pin-d" id="pin-d">Ingresa tu PIN para activar el modo edición.</p>
+  <label class="pin-l">PIN
+   <span class="pin-f"><input id="pin-i" type="password" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="••••" aria-describedby="pin-d pin-e"><button class="pin-eye" id="pin-eye" type="button" aria-label="Mostrar PIN" aria-pressed="false"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button></span>
+  </label>
+  <p id="pin-e" role="alert"></p>
+  <div class="bar"><button class="pin-btn primary" type="submit">Entrar</button><button class="pin-btn" type="button" id="pin-x">Cancelar</button></div>
+  <p class="pin-foot">Acceso restringido · Taller Regalia &amp; Setups</p>
+ </form>
+</div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Imagen ampliada"><button class="btn solid" id="lbx" type="button">Cerrar</button><img alt=""></div>
+<footer class="site-footer" id="site-footer"><p>Taller Regalia &amp; Setups</p></footer>
+
+<script src="js/media.js"></script>
+<script src="js/embed.js"></script>
+<script src="js/richtext.js"></script>
+<script src="js/pin.js"></script>
+<script src="js/admin-ui.js"></script>
+<script src="js/publish.js"></script>
+<script src="js/inicio.js"></script>
+<script src="js/spacing.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/portada.js"></script>
+</body>
+</html>

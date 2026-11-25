@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>html.trs-wait body{opacity:0}body{transition:opacity .25s ease}</style>
+<script>document.documentElement.classList.add("trs-wait");setTimeout(function(){document.documentElement.classList.remove("trs-wait")},4500)</script>
+<title>Contacto – Taller Regalia Setups</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/contacto.css">
+</head>
+<body>
+
+<header class="site-nav">
+ <a class="brand" href="#" aria-label="Taller Regalia Setups">
+  <span class="logo-box"><svg id="logo-def" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#f2c200" stroke-width="3" stroke-dasharray="3 2"/><circle cx="24" cy="24" r="12" fill="#f2c200"/><circle cx="24" cy="24" r="4.5" fill="#141414"/></svg><img id="logo-img" alt="Logo de Taller Regalia &amp; Setups" hidden></span>
+  <span id="brand-name">Taller Regalia &amp; Setups<small>Computación · electrónica · reparación</small></span>
+ </a>
+ <button class="burger" aria-expanded="false" aria-controls="menu">Menú</button>
+ <nav aria-label="Principal">
+  <ul class="menu" id="menu">
+   <li><a href="index.html">Inicio</a></li>
+   <li><a href="trabajo.html">Nuestro trabajo</a></li>
+   <li><a href="plenario.html">Taller (Plenario)</a></li>
+   <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+ </nav>
+</header>
+
+<div class="hours">Horarios de atención: <span data-edit="hr1">Lunes a viernes 16:00 a 20:00 hrs</span> | <span data-edit="hr2">Sábados 12:00 a 15:00 hrs</span></div>
+
+<div class="intro">
+ <h1 data-edit="t">Contacto</h1>
+ <p data-edit="p" data-rich="p">Si tienes alguna duda, inquietud, consulta o sugerencia, no dudes en contactarnos. Poder brindar ayuda y consejo es nuestro compromiso.</p>
+</div>
+
+<div class="admin">
+ <button class="btn" id="toggle" aria-pressed="false" type="button" hidden>Modo edición</button>
+ <div class="edtools">
+  <div class="bar"><span>Logo:</span><button class="btn solid" type="button" id="logo-chg">Cambiar logo</button><button class="btn" type="button" id="logo-rst">Restaurar</button>
+   <label><input type="checkbox" id="logo-txt" checked> Mostrar nombre junto al logo</label></div>
+  <div class="bar"><span>Mapa:</span><button class="btn solid" type="button" id="map-set">Cambiar mapa</button><button class="btn" type="button" id="map-rst">Usar la dirección</button></div>
+  <p class="hint" id="ed-msg" role="status"></p>
+ </div>
+</div>
+
+<main class="grid" id="page">
+ <!-- FORMULARIO: se envía directo al correo del consultor TI -->
+ <section aria-labelledby="t-form">
+  <h2 id="t-form" data-edit="fh">Escríbenos</h2>
+  <form id="f" novalidate>
+   <label>Nombre
+    <input id="nombre" name="nombre" autocomplete="name" required placeholder="Tu nombre">
+    <span class="err" id="e-nombre"></span></label>
+   <div class="row">
+    <label>Correo
+     <input id="correo" name="correo" type="email" autocomplete="email" required placeholder="tucorreo@gmail.com">
+     <span class="err" id="e-correo"></span></label>
+    <label>Teléfono
+     <input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="+56 9 1234 5678">
+     <span class="err" id="e-tel"></span></label>
+   </div>
+   <label>Mensaje
+    <textarea id="msg" name="msg" required placeholder="Cuéntanos qué equipo o servicio necesitas"></textarea>
+    <span class="err" id="e-msg"></span></label>
+   <input class="hp" id="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+   <div class="actions">
+    <button class="btn primary" type="submit" id="send">Enviar mensaje</button>
+   </div>
+   <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+ </section>
+
+ <!-- MAPA + DATOS -->
+ <section aria-labelledby="t-mapa">
+  <h2 id="t-mapa" data-edit="mh">Dónde estamos</h2>
+  <div class="map">
+   <iframe id="map-frame" title="Mapa de Taller Regalia Setups" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+    src="https://www.google.com/maps?q=Villa+del+Rey+Ocho+1442,+Los+Lagos,+Valdivia,+Los+R%C3%ADos&output=embed"></iframe>
+  </div>
+  <address class="info">
+   <div><b>Dirección</b><span data-edit="addr">Villa del Rey Ocho 1442, Los Lagos, Valdivia, Los Ríos</span></div>
+   <div><b>Horario</b><span data-edit="hours">Lunes a viernes 16:00–20:00 · Sábados 12:00–15:00</span></div>
+   <div><b>Teléfono</b><a id="tel-link" href="tel:+56939591449"><span data-edit="phone">+56 9 3959 1449</span></a></div>
+  </address>
+  <p><a class="btn ghost" id="maps-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Villa+del+Rey+Ocho+1442+Los+Lagos+Valdivia">Abrir en Google Maps</a></p>
+ </section>
+</main>
+
+<div class="blocks-wrap">
+ <section class="blocks" id="blocks" aria-label="Contenido adicional">
+  <p class="hint" id="blk-msg" role="status"></p>
+  <ul class="blk-list" id="blk-list"></ul>
+  <div class="blk-add" id="blk-add" hidden><strong>Agregar bloque:</strong><button class="gbtn solid" type="button" data-badd="title">+ Título</button><button class="gbtn solid" type="button" data-badd="text">+ Cuadro de texto</button><button class="gbtn solid" type="button" data-badd="image">+ Imagen</button><button class="gbtn solid" type="button" data-badd="video">+ Video</button><button class="gbtn solid" type="button" data-badd="split">+ Texto con imagen</button><button class="gbtn solid" type="button" data-badd="hl">+ Texto destacado</button></div>
+ </section>
+</div>
+
+<footer class="site-footer" id="site-footer"><p>Taller Regalia &amp; Setups</p></footer>
+
+<!-- Ventana de confirmación del envío -->
+<div class="dlg" id="sent" role="alertdialog" aria-modal="true" aria-labelledby="sent-t" aria-describedby="sent-d">
+ <div class="sentbox" id="sentbox">
+  <div class="sent-ic" id="sent-ic" aria-hidden="true"></div>
+  <h3 id="sent-t"></h3>
+  <p id="sent-d"></p>
+  <dl class="sent-sum" id="sent-sum"></dl>
+  <div class="sent-act"><button class="pin-btn primary" type="button" id="sent-ok">Cerrar</button><button class="pin-btn" type="button" id="sent-retry" hidden>Reintentar</button><button class="pin-btn" type="button" id="sent-gmail" hidden>Abrir en Gmail</button></div>
+ </div>
+</div>
+
+<input type="file" id="file-logo" accept="image/*">
+<div class="dlg" id="pin" role="dialog" aria-modal="true" aria-labelledby="pin-t">
+ <form class="pinbox" id="pinf" autocomplete="off">
+  <img class="pin-logo" src="img/logo-empresa.png" alt="Taller Regalia &amp; Setups">
+  <h3 id="pin-t">Acceso de administrador</h3>
+  <p class="pin-d" id="pin-d">Ingresa tu PIN para activar el modo edición.</p>
+  <label class="pin-l">PIN
+   <span class="pin-f"><input id="pin-i" type="password" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="••••" aria-describedby="pin-d pin-e"><button class="pin-eye" id="pin-eye" type="button" aria-label="Mostrar PIN" aria-pressed="false"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button></span>
+  </label>
+  <p id="pin-e" role="alert"></p>
+  <div class="bar"><button class="pin-btn primary" type="submit">Entrar</button><button class="pin-btn" type="button" id="pin-x">Cancelar</button></div>
+  <p class="pin-foot">Acceso restringido · Taller Regalia &amp; Setups</p>
+ </form>
+</div>
+
+<script src="js/media.js"></script>
+<script src="js/embed.js"></script>
+<script src="js/richtext.js"></script>
+<script src="js/pin.js"></script>
+<script src="js/admin-ui.js"></script>
+<script src="js/publish.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/blocks.js"></script>
+<script src="js/contacto.js"></script>
+<script src="js/spacing.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/portada.js"></script>
+</body>
+</html>

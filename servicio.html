@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>html.trs-wait body{opacity:0}body{transition:opacity .25s ease}</style>
+<script>document.documentElement.classList.add("trs-wait");setTimeout(function(){document.documentElement.classList.remove("trs-wait")},4500)</script>
+<title>Servicio – Taller Regalia Setups</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/servicio.css">
+</head>
+<body>
+
+<header class="site-nav">
+ <a class="brand" href="#" aria-label="Taller Regalia Setups">
+  <span class="logo-box"><svg id="logo-def" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#f2c200" stroke-width="3" stroke-dasharray="3 2"/><circle cx="24" cy="24" r="12" fill="#f2c200"/><circle cx="24" cy="24" r="4.5" fill="#141414"/></svg><img id="logo-img" alt="Logo de Taller Regalia &amp; Setups" hidden></span>
+  <span id="brand-name">Taller Regalia &amp; Setups<small>Computación · electrónica · reparación</small></span>
+ </a>
+ <button class="burger" aria-expanded="false" aria-controls="menu">Menú</button>
+ <nav aria-label="Principal">
+  <ul class="menu" id="menu">
+   <li><a href="index.html" aria-current="page">Inicio</a></li>
+   <li><a href="trabajo.html">Nuestro trabajo</a></li>
+   <li><a href="plenario.html">Taller (Plenario)</a></li>
+   <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+ </nav>
+</header>
+
+<div class="hours">Horarios de atención: <span data-edit="hr1">Lunes a viernes 16:00 a 20:00 hrs</span> | <span data-edit="hr2">Sábados 12:00 a 15:00 hrs</span></div>
+
+<div class="admin">
+ <button class="btn" id="toggle" aria-pressed="false" type="button" hidden>Modo edición</button>
+ <div class="edtools">
+  <div class="bar"><span>Logo:</span><button class="btn solid" type="button" id="logo-chg">Cambiar logo</button><button class="btn" type="button" id="logo-rst">Restaurar</button>
+   <label><input type="checkbox" id="logo-txt" checked> Mostrar nombre junto al logo</label></div>
+  <p class="hint" id="ed-msg" role="status"></p>
+ </div>
+</div>
+
+<main class="wrap" id="page">
+ <nav class="crumb" aria-label="Ruta"><a href="index.html#servicios">← Todos los servicios</a></nav>
+
+ <section class="svc-hero" id="hero">
+  <div class="svc-text">
+   <h1 data-edit="t"></h1>
+   <p class="lead" data-edit="d" data-rich="lead"></p>
+   <p class="body" data-edit="body" data-rich="body"></p>
+   <a class="btn solid cta" id="s-cta" href="contacto.html">Consultar este servicio</a>
+  </div>
+  <aside class="svc-media-col" id="mediacol" aria-label="Video de introducción">
+   <div class="svc-media" id="s-media"></div>
+   <div class="media-ed">
+    <div class="bar"><strong>Video:</strong><button class="btn solid" type="button" id="v-link">Poner enlace</button><button class="btn" type="button" id="v-file">Subir archivo</button><button class="btn" type="button" id="v-rst">Quitar video</button>
+     <label>Formato <select id="v-asp"><option value="v">Vertical 4:5</option><option value="h">Horizontal 16:9</option><option value="t">Alto 9:16</option></select></label></div>
+    <div class="bar"><strong>Imagen:</strong><button class="btn" type="button" id="i-chg">Cambiar imagen</button><button class="btn" type="button" id="i-rst">Quitar imagen</button></div>
+    <p class="hint" id="v-msg" role="status">Enlace de YouTube o Vimeo, o archivo .mp4/.webm (https://… o videos/intro.mp4). «Subir archivo» solo se guarda en este navegador.</p>
+   </div>
+  </aside>
+ </section>
+
+ <section class="feats-sec" aria-labelledby="ft-t">
+  <h2><span id="ft-t" data-edit="ft">Características</span><span class="addwrap"><button class="btn solid" type="button" id="f-add">+ Agregar característica</button></span></h2>
+  <ul class="feats" id="feats"></ul>
+ </section>
+
+ <section class="gal" id="gal" aria-labelledby="gt-t">
+  <h2><span id="gt-t" data-edit="gt">Galería</span><span class="addwrap"><button class="btn solid" type="button" id="g-add">+ Agregar imágenes</button></span></h2>
+  <p class="hint" id="gal-msg" role="status"></p>
+  <ul class="gal-grid" id="gal-grid" aria-label="Galería de imágenes"></ul>
+ </section>
+
+ <section class="blocks" id="blocks" aria-label="Contenido adicional">
+  <p class="hint" id="blk-msg" role="status"></p>
+  <ul class="blk-list" id="blk-list"></ul>
+  <div class="blk-add" id="blk-add" hidden><strong>Agregar bloque:</strong><button class="gbtn solid" type="button" data-badd="title">+ Título</button><button class="gbtn solid" type="button" data-badd="text">+ Cuadro de texto</button><button class="gbtn solid" type="button" data-badd="image">+ Imagen</button><button class="gbtn solid" type="button" data-badd="video">+ Video</button><button class="gbtn solid" type="button" data-badd="split">+ Texto con imagen</button><button class="gbtn solid" type="button" data-badd="hl">+ Texto destacado</button></div>
+ </section>
+</main>
+
+<footer class="site-footer" id="site-footer"><p>Taller Regalia &amp; Setups</p></footer>
+
+<input type="file" id="file-img" accept="image/*">
+<input type="file" id="file-vid" accept="video/*">
+<input type="file" id="file-logo" accept="image/*">
+<div class="dlg" id="pin" role="dialog" aria-modal="true" aria-labelledby="pin-t">
+ <form class="pinbox" id="pinf" autocomplete="off">
+  <img class="pin-logo" src="img/logo-empresa.png" alt="Taller Regalia &amp; Setups">
+  <h3 id="pin-t">Acceso de administrador</h3>
+  <p class="pin-d" id="pin-d">Ingresa tu PIN para activar el modo edición.</p>
+  <label class="pin-l">PIN
+   <span class="pin-f"><input id="pin-i" type="password" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="••••" aria-describedby="pin-d pin-e"><button class="pin-eye" id="pin-eye" type="button" aria-label="Mostrar PIN" aria-pressed="false"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button></span>
+  </label>
+  <p id="pin-e" role="alert"></p>
+  <div class="bar"><button class="pin-btn primary" type="submit">Entrar</button><button class="pin-btn" type="button" id="pin-x">Cancelar</button></div>
+  <p class="pin-foot">Acceso restringido · Taller Regalia &amp; Setups</p>
+ </form>
+</div>
+
+<script src="js/media.js"></script>
+<script src="js/embed.js"></script>
+<script src="js/richtext.js"></script>
+<script src="js/pin.js"></script>
+<script src="js/admin-ui.js"></script>
+<script src="js/publish.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/blocks.js"></script>
+<script src="js/servicio.js"></script>
+<script src="js/spacing.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/portada.js"></script>
+</body>
+</html>

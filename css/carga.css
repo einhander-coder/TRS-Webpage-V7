@@ -1,0 +1,51 @@
+/* Pantalla de carga: solo el logo sobre el fondo oscuro del sitio. */
+:root{--ink:#141414;--gold:#f2c200;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%;margin:0;overflow:hidden}
+body{background:radial-gradient(ellipse at 50% 45%,#1a1a1a 0,var(--ink) 55%,#0d0d0d 100%);overflow:hidden;color:#fff;transition:opacity .55s ease}
+body.out{opacity:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.stage{min-height:100%;display:grid;place-items:center;padding:clamp(1rem,5vw,3rem);overflow:hidden}
+
+.logo{--p:0;position:relative;width:min(92vw,1000px);aspect-ratio:2379/835;animation:intro 1.1s cubic-bezier(.2,.7,.2,1) both}
+.logo img{position:absolute;inset:0;width:100%;height:100%;display:block;user-select:none;-webkit-user-drag:none;pointer-events:none}
+
+/* capa apagada (el logo «sin energía») */
+.dim{filter:grayscale(1) brightness(.22) contrast(1.05)}
+/* capa encendida: se revela de izquierda a derecha según avanza la carga */
+.lit{clip-path:inset(0 calc((1 - var(--p)) * 100%) 0 0);-webkit-clip-path:inset(0 calc((1 - var(--p)) * 100%) 0 0);will-change:clip-path}
+
+/* haz de soldadura en el borde del avance */
+.beam{position:absolute;top:-7%;bottom:-7%;left:calc(var(--p) * 100%);width:3px;margin-left:-1.5px;border-radius:3px;
+ background:linear-gradient(transparent,var(--gold) 18%,#fff6c2 50%,var(--gold) 82%,transparent);
+ box-shadow:0 0 14px 4px rgba(242,194,0,.7),0 0 46px 12px rgba(242,194,0,.28);opacity:0;transition:opacity .25s ease}
+.logo.run .beam{opacity:1}
+.logo.done .beam{opacity:0}
+
+/* engranajes: dos anillos que giran en sentidos opuestos y se «encienden» con el avance */
+.rings{position:absolute;inset:0;width:100%;height:100%;overflow:visible;opacity:calc(.12 + var(--p) * .88);pointer-events:none}
+.ring{transform-box:view-box;transform-origin:400px 418px}
+.r1{animation:spin 16s linear infinite}
+.r2{animation:spin 11s linear infinite reverse}
+
+/* chispas */
+.sparks{position:absolute;left:-6%;top:-14%;width:112%;height:128%;pointer-events:none}
+
+/* al terminar: parpadeo de neón y brillo */
+.logo.done .lit{animation:flicker .7s steps(1,end) both,glow 1.6s ease-in-out .7s infinite alternate}
+.logo.done .rings{animation:ringsGlow 1.6s ease-in-out infinite alternate}
+
+@keyframes intro{from{opacity:0;transform:scale(.93);filter:blur(12px)}to{opacity:1;transform:none;filter:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes flicker{0%{opacity:.35}12%{opacity:1}22%{opacity:.5}34%{opacity:1}46%{opacity:.7}58%,100%{opacity:1}}
+@keyframes glow{from{filter:drop-shadow(0 0 6px rgba(242,194,0,.25))}to{filter:drop-shadow(0 0 26px rgba(242,194,0,.7))}}
+@keyframes ringsGlow{from{opacity:.75}to{opacity:1}}
+
+/* movimiento reducido: logo estático, sin haz ni chispas */
+@media (prefers-reduced-motion:reduce){
+ .logo{animation:none}
+ .beam,.sparks{display:none}
+ .r1,.r2{animation:none}
+ .logo.done .lit,.logo.done .rings{animation:none}
+ body{transition:none}
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style>html.trs-wait body{opacity:0}body{transition:opacity .25s ease}</style>
+<script>document.documentElement.classList.add("trs-wait");setTimeout(function(){document.documentElement.classList.remove("trs-wait")},4500)</script>
+<title>Nuestro Trabajo – Taller Regalia Setups</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/trabajo.css">
+</head>
+<body>
+
+<header class="site-nav">
+ <a class="brand" href="#" aria-label="Taller Regalia Setups">
+  <span class="logo-box"><svg id="logo-def" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#f2c200" stroke-width="3" stroke-dasharray="3 2"/><circle cx="24" cy="24" r="12" fill="#f2c200"/><circle cx="24" cy="24" r="4.5" fill="#141414"/></svg><img id="logo-img" alt="Logo de Taller Regalia &amp; Setups" hidden></span>
+  <span id="brand-name">Taller Regalia &amp; Setups<small>Computación · electrónica · reparación</small></span>
+ </a>
+ <button class="burger" aria-expanded="false" aria-controls="menu">Menú</button>
+ <nav aria-label="Principal">
+  <ul class="menu" id="menu">
+   <li><a href="index.html">Inicio</a></li>
+   <li><a href="trabajo.html" aria-current="page">Nuestro trabajo</a></li>
+   <li><a href="plenario.html">Taller (Plenario)</a></li>
+   <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+ </nav>
+</header>
+
+<div class="hours">Horarios de atención: <span>Lunes a viernes 16:00 a 20:00 hrs</span> | <span>Sábados 12:00 a 15:00 hrs</span></div>
+
+<main class="wrap" id="page">
+ <div class="bar" style="justify-content:space-between;align-items:flex-end">
+  <h1>Nuestro trabajo</h1>
+  <button class="btn" id="toggle" aria-pressed="false" type="button" hidden>Modo edición</button>
+ </div>
+ <div class="logotools"><span>Logo:</span><button class="btn solid" type="button" id="logo-chg">Cambiar logo</button><button class="btn" type="button" id="logo-rst">Restaurar</button><label><input type="checkbox" id="logo-txt" checked> Mostrar nombre junto al logo</label></div>
+
+ <!-- Presentación: texto + imagen principal -->
+ <section class="lead" aria-label="Presentación">
+  <p data-edit="lead" data-rich="lead">Estamos enfocados como una iniciativa en el entorno de las TI y en la proporción de un servicio técnico preciso en la revisión y mantenimiento de equipos de computación portátil, de sobremesa o dispositivos móviles. Nos enorgullece dar apoyo y capacitar los equipos electrónicos para los aficionados y amantes del hardware, ofreciendo una amplia gama de soluciones para armar equipos de mayor grado y otros dispositivos relacionados en el uso productivo, empresarial o personal.</p>
+  <div class="slot r45" data-slot="main"></div>
+ </section>
+
+ <section class="gal" id="gal" aria-labelledby="gal-t">
+  <h2><span id="gal-t">Galería</span><span class="addwrap"><button class="btn solid" type="button" data-gact="add">+ Agregar imágenes</button></span></h2>
+  <p class="gal-text" id="gal-d" data-rich="gal-d"></p>
+  <p class="hint" id="gal-msg" role="status"></p>
+  <ul class="gal-grid" id="gal-grid" aria-label="Galería de imágenes"></ul>
+ </section>
+
+ <section class="sup" id="sup" aria-labelledby="sup-t">
+  <h2><span id="sup-t">Insumos de trabajo</span><span class="addwrap"><button class="btn solid" type="button" data-sact="add">+ Agregar proveedor</button></span></h2>
+  <p class="sup-text" id="sup-d" data-rich="sup-d"></p>
+  <p class="hint" id="sup-msg" role="status">Cada recuadro puede llevar a una página web: «Poner enlace» acepta una dirección (URL) o el código embed/enlace del sitio.</p>
+  <ul class="sup-grid" id="sup-grid" aria-label="Proveedores"></ul>
+ </section>
+
+ <section class="blocks" id="blocks" aria-label="Contenido adicional">
+  <p class="hint" id="blk-msg" role="status"></p>
+  <ul class="blk-list" id="blk-list"></ul>
+  <div class="blk-add" id="blk-add" hidden><strong>Agregar bloque:</strong><button class="gbtn solid" type="button" data-badd="title">+ Título</button><button class="gbtn solid" type="button" data-badd="text">+ Cuadro de texto</button><button class="gbtn solid" type="button" data-badd="image">+ Imagen</button><button class="gbtn solid" type="button" data-badd="video">+ Video</button><button class="gbtn solid" type="button" data-badd="split">+ Texto con imagen</button><button class="gbtn solid" type="button" data-badd="hl">+ Texto destacado</button></div>
+ </section>
+</main>
+
+<div class="dlg" id="pin" role="dialog" aria-modal="true" aria-labelledby="pin-t">
+ <form class="pinbox" id="pinf" autocomplete="off">
+  <img class="pin-logo" src="img/logo-empresa.png" alt="Taller Regalia &amp; Setups">
+  <h3 id="pin-t">Acceso de administrador</h3>
+  <p class="pin-d" id="pin-d">Ingresa tu PIN para activar el modo edición.</p>
+  <label class="pin-l">PIN
+   <span class="pin-f"><input id="pin-i" type="password" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="••••" aria-describedby="pin-d pin-e"><button class="pin-eye" id="pin-eye" type="button" aria-label="Mostrar PIN" aria-pressed="false"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button></span>
+  </label>
+  <p id="pin-e" role="alert"></p>
+  <div class="bar"><button class="pin-btn primary" type="submit">Entrar</button><button class="pin-btn" type="button" id="pin-x">Cancelar</button></div>
+  <p class="pin-foot">Acceso restringido · Taller Regalia &amp; Setups</p>
+ </form>
+</div>
+<input type="file" id="file" accept="image/*">
+<input type="file" id="file-logo" accept="image/*">
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Imagen ampliada"><button class="btn solid" id="lbx" type="button">Cerrar</button><img alt=""></div>
+<footer class="site-footer" id="site-footer"><p>Taller Regalia &amp; Setups</p></footer>
+
+<script src="js/media.js"></script>
+<script src="js/embed.js"></script>
+<script src="js/richtext.js"></script>
+<script src="js/pin.js"></script>
+<script src="js/admin-ui.js"></script>
+<script src="js/publish.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/blocks.js"></script>
+<script src="js/trabajo.js"></script>
+<script src="js/spacing.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/portada.js"></script>
+</body>
+</html>
